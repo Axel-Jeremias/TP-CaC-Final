@@ -1,0 +1,149 @@
+@import './cards.css';
+
+/* Cada elemento que contiene cada pregunta y respuesta */
+
+details {
+    margin-bottom: 16px;
+}
+
+/* Cada pregunta. Eliminamos el estilo original de lista y usamos flex para alinear verticalmente */
+
+summary {
+    font-size: 4rem;
+    font-weight: 400;
+    font-family: var(--open-sans);
+    color: #ffffff;
+    padding: 20px 55px 20px 20px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    background-image: linear-gradient(to right, rgb(85, 161, 135), rgb(70,83,255));
+    text-align: left;
+}
+
+summary:hover {
+    background-image: linear-gradient(to right, rgb(73, 138, 115), rgb(61, 71, 221));
+}
+
+/* Aseguramos que eliminamos el icono original del summary */
+
+details > summary::marker {
+    content: "";
+}
+
+/* Cuando details está cerrado, mostramos un "+" a la derecha como es comun en un FAQ */
+
+details > summary::after {
+    position: absolute;
+    content: "+";
+    right: 20px;
+}
+
+/* Cuando está abierto, lo reemplazamos con un "-" para indicar que puede ser cerrado */
+
+details[open] > summary::after {
+    content: "-";
+}
+
+/* Cada respuesta */
+
+.respuesta {
+    padding: 25px;
+}
+
+.respuesta p {
+    color: white;
+}
+
+.respuesta > p:not(:last-child) {
+    margin-bottom: 35px;
+}
+
+.respuesta span {
+    color: rgb(245, 119, 228);
+}
+
+/* Links dentro de cada respuesta */
+
+.respuesta a {
+    text-decoration: none;
+    color: white;
+    border-bottom: 3px solid rgb(202, 92, 188);
+}
+
+.respuesta a:hover {
+    color: rgb(202, 92, 188);
+}
+
+/* Divs para nuestra respuesta con las sedes MasterFrame */
+
+.ubicacion {
+    display: flex;
+}
+
+.texto-ubicacion {
+    padding-right: 40px;
+    flex: 2 1 calc(100% / 2);
+}
+
+.texto-ubicacion > h2 {
+    display: inline-block;
+    font-size: 5.5rem;
+    text-align: left;
+    border-bottom: 4px solid rgb(255, 255, 255);
+    padding: 0 0 1px;
+}
+
+.texto-ubicacion > p {
+    padding: 15px;
+    font-size: 3.5rem;
+}
+
+/* Aseguramos que el mapa no ocupe más de 1/3 del div */
+
+.mapa {
+    flex: 1 1 calc(100% / 3);
+    aspect-ratio: 4 / 3;
+}
+
+/* Media queries */
+
+/* Laptops y PCs medianas */
+@media screen and (max-width: 1366px) {
+	.ubicacion {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .texto-ubicacion {
+        width: 100%;
+    }
+
+    .mapa {
+        width: 70%;
+    }
+}
+
+/* Tablets */
+@media screen and (max-width: 768px) {
+    .texto-ubicacion {
+        padding-right: 0;
+    }
+
+    .respuesta {
+        padding: 15px;
+    }
+
+    .mapa {
+        width: 95%;
+    }
+}
+
+/* Celulares */
+@media screen and (max-width: 576px) {
+    #faq {
+        padding: 10px;
+    }
+}

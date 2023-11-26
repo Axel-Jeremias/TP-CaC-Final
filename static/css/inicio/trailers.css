@@ -1,0 +1,45 @@
+/* Nuestro contenedor de trailers */
+
+#trailers-container {
+    gap: 15px 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 10px 20px;
+}
+
+/* Esto evita que cada celda ocupe más del 50% */
+
+#trailers-container div {
+    min-width: 0;
+}
+
+/* Procurar que cada video mantenga una proporción 16/9 */
+
+#trailers-container iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+/* Titulo de la pelicula. En caso de overflow, usamos una elipsis */
+
+#trailers-container h3 {
+    max-width: 100%;
+    padding: 15px;
+    color:white;
+    font-family: var(--poppins);
+    font-weight: 500;
+    text-align: center;
+    font-size: 3rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/* Media queries */
+
+/* Tablets y celulares */
+@media screen and (max-width: 768px) {
+    #trailers-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
