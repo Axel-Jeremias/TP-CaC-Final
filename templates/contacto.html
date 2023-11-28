@@ -1,100 +1,80 @@
+{% extends "base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block extra-head %}
+	<script src="{% static 'js/contacto/contacto.js' %}" type="module" defer></script>
+{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static './css/styles.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,600;1,400&family=Poppins:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="{% static './img/logo/icon-mf.ico' %}">
-    <script src="{% static './js/contacto/contacto.js' %}" type="module" defer></script>
+{% block titulo %}Contacto{% endblock %}
 
-    <title>Contacto | Cine MasterFrame</title>
-</head>
+{% block content %}
+	<h1 id="titulo-pagina">Contacto</h1>
 
-<body>
-    <div id="vue-app">
-		<Navbar></Navbar>
-        
-        <main>
-            <h1 id="titulo-pagina">Contacto</h1>
+	<section id="contacto">
+		<form name="contactoForm" @submit.prevent="validarFormulario">
+			<fieldset>
+				<legend>Datos personales</legend>
 
-            <section id="contacto">
-                <form name="contactoForm" @submit.prevent="validarFormulario">
-                    <fieldset>
-                        <legend>Datos personales</legend>
+				<div class="form-group">
+					<div class="item">
+						<label for="nombre" class="titulo-campo">Nombre</label>
+						<input type="text" name="nombre" placeholder="Nombre" required/>
+					</div>
+					<div class="item">
+						<label for="apellido" class="titulo-campo">Apellido</label>
+						<input type="text" name="apellido" placeholder="Apellido" required/>
+					</div>
+				</div>
 
-                        <div class="form-group">
-                            <div class="item">
-                                <label for="nombre" class="titulo-campo">Nombre</label>
-                                <input type="text" name="nombre" placeholder="Nombre" required/>
-                            </div>
-                            <div class="item">
-                                <label for="apellido" class="titulo-campo">Apellido</label>
-                                <input type="text" name="apellido" placeholder="Apellido" required/>
-                            </div>
-                        </div>
+				<div class="form-group">
+					<div class="item">
+						<label for="email" class="titulo-campo">E-mail</label>
+						<input type="email" name="email" placeholder="E-mail" required/>
+					</div>
+					<div class="item">
+						<label for="telefono" class="titulo-campo">Teléfono</label>
+						<input type="tel" name="telefono" placeholder="01-2345-6789" pattern="^([0-9]+-)*[0-9]+$" title="Numeros y guiones (opcionales)" required/>
+					</div>
+				</div>
+			</fieldset>
 
-                        <div class="form-group">
-                            <div class="item">
-                                <label for="email" class="titulo-campo">E-mail</label>
-                                <input type="email" name="email" placeholder="E-mail" required/>
-                            </div>
-                            <div class="item">
-                                <label for="telefono" class="titulo-campo">Teléfono</label>
-                                <input type="tel" name="telefono" placeholder="01-2345-6789" pattern="^([0-9]+-)*[0-9]+$" title="Numeros y guiones (opcionales)" required/>
-                            </div>
-                        </div>
-                    </fieldset>
+			<fieldset>
+				<legend>Consulta</legend>
 
-                    <fieldset>
-                        <legend>Consulta</legend>
+				<div class="form-group">
+					<div class="item">
+						<label for="info" class="titulo-campo">Tipo de consulta</label>
+						<label for="tickets">
+							<input type="radio" id="tickets" name="tipoConsulta" value="Ticket"/>
+							Tickets
+						</label>
+						<label for="catalogo">
+							<input type="radio" id="catalogo" name="tipoConsulta" value="Catálogo"/>
+							Catálogo
+						</label>
+						<label for="alimentos">
+							<input type="radio" id="alimentos" name="tipoConsulta" value="Alimentos"/>
+							Alimentos
+						</label>
+						<label for="otro">
+							<input type="radio" id="otro" name="tipoConsulta" value="Otro"/>
+							Otro
+						</label>
+					</div>
+				</div>
 
-                        <div class="form-group">
-                            <div class="item">
-                                <label for="info" class="titulo-campo">Tipo de consulta</label>
-                                <label for="tickets">
-                                    <input type="radio" id="tickets" name="tipoConsulta" value="Ticket"/>
-                                    Tickets
-                                </label>
-                                <label for="catalogo">
-                                    <input type="radio" id="catalogo" name="tipoConsulta" value="Catálogo"/>
-                                    Catálogo
-                                </label>
-                                <label for="alimentos">
-                                    <input type="radio" id="alimentos" name="tipoConsulta" value="Alimentos"/>
-                                    Alimentos
-                                </label>
-                                <label for="otro">
-                                    <input type="radio" id="otro" name="tipoConsulta" value="Otro"/>
-                                    Otro
-                                </label>
-                            </div>
-                        </div>
+				<div class="form-group">
+					<div id="box-comentario">
+						<label for="comentario" class="titulo-campo">Comentario</label>
+						<textarea id="comentario" name="comentario" rows="6" required></textarea>
+					</div>
+				</div>
+			</fieldset>
 
-                        <div class="form-group">
-                            <div id="box-comentario">
-                                <label for="comentario" class="titulo-campo">Comentario</label>
-                                <textarea id="comentario" name="comentario" rows="6" required></textarea>
-                            </div>
-                        </div>
-                    </fieldset>
+			<button type="submit">Enviar</button>
+			<button type="reset">Borrar</button>
+		</form>
+	</section>
 
-                    <button type="submit">Enviar</button>
-                    <button type="reset">Borrar</button>
-                </form>
-            </section>
-
-        <Notificacion v-if="mostrarNotificacion" :enviado="enviado"></Notificacion>
-        </main>
-
-        <Vue-footer></Vue-footer>
-    </div>
-</body>
-
-</html>
+	<Notificacion v-if="mostrarNotificacion" :enviado="enviado"></Notificacion>
+{% endblock %}

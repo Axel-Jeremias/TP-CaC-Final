@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,600;1,400&family=Poppins:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	<link rel="icon" type="image/x-icon" href="{% static 'img/logo/icon-mf.ico' %}">
+	<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+	{% block extra-head %}{% endblock %}
+
+	<title>{% block titulo %}{% endblock %} | Cine MasterFrame</title>
+</head>
+
+<body>
+	<div id="vue-app">
+		<header id="header">
+			<div id="navbar">
+				<div id="logo-container">
+					<img src="{% static 'img/logo/logo-mf.png' %}" id="logo" alt="MasterFrame logo">
+				</div>
+				<ul>
+					<li><a href="{% url 'inicio' %}">Inicio</a></li>
+					<li><a href="{% url 'cartelera' %}">Cartelera</a></li>
+					<li><a href="{% url 'servicios' %}">Preguntas frecuentes</a></li>
+					<li><a href="{% url 'contacto' %}">Contacto</a></li>
+				</ul>
+			</div>
+		</header>
+
+		<main>
+			{% block content %}{% endblock %}
+		</main>
+
+		<footer>
+			<ul id="lista-footer">
+				<li><a href="{% url 'inicio' %}">Inicio</a></li>
+				<li><a href="{% url 'cartelera' %}">Cartelera</a></li>
+				<li><a href="{% url 'servicios' %}">Preguntas frecuentes</a></li>
+				<li><a href="{% url 'contacto' %}">Contacto</a></li>
+			</ul>
+		</footer>
+	</div>
+</body>
+
+</html>
