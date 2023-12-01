@@ -39,5 +39,8 @@ export const mainCore = {
                 this.nuevaNovedad = this.novedades[this.numeroSlide - 1];
             }
         }
-    }
+    },
+    delimiters: [
+        '@{{', '}}'
+    ]
 };
