@@ -1,6 +1,4 @@
 import { Novedad } from './components/novedad.Component.js';
-import { Navbar } from './components/navbar.Component.js';
-import { Footer } from './components/footer.Component.js';
 
 export const mainCore = {
     data: function() {
@@ -15,8 +13,6 @@ export const mainCore = {
     },
     components: {
         Novedad: Novedad,
-        Navbar: Navbar,
-        VueFooter: Footer
     },
     async created() {
         const response = await fetch(this.jsonData);
@@ -41,6 +37,6 @@ export const mainCore = {
         }
     },
     delimiters: [
-        '@{{', '}}'
+        '${', '}'
     ]
 };

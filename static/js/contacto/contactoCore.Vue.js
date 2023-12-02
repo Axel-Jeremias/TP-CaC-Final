@@ -1,5 +1,3 @@
-import { Navbar } from '../components/navbar.Component.js';
-import { Footer } from '../components/footer.Component.js';
 import { Notificacion } from '../components/notificacion.Component.js';
 
 export const contactoCore = {
@@ -12,8 +10,6 @@ export const contactoCore = {
     },
     components: {
         Notificacion: Notificacion,
-        Navbar: Navbar,
-        VueFooter: Footer
     },
     methods: {
         validarFormulario: async function(event) {

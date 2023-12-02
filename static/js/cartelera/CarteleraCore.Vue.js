@@ -1,5 +1,3 @@
-import { Navbar } from '../components/navbar.Component.js';
-import { Footer } from '../components/footer.Component.js';
 import { GridPeliculas } from './gridPelicula.Component.js';
 
 export const CarteleraCore = {
@@ -16,8 +14,6 @@ export const CarteleraCore = {
         }
     },
     components: {
-        Navbar: Navbar,
-        VueFooter: Footer,
         GridPeliculas: GridPeliculas
     },
     async created() {
