@@ -34,7 +34,7 @@ class Peliculas(models.Model):
 	sinopsis = models.TextField()
 
 	def __str__(self):
-		return f"{self.nombre}, una pelicula de {self.get_genero_display} lanzada en {self.año}"
+		return f"{self.nombre}, una pelicula de {self.get_genero_display()} lanzada en {self.año}"
 	
 	def get_fields(self):
 		return [
