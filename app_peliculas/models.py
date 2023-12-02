@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.validators import MinValueValidator
 
-class Peliculas(models.model):
+class Peliculas(models.Model):
 	DRAMA = 'Drama'
 	COMEDIA = 'Comedia'
 	HORROR = 'Horror'
