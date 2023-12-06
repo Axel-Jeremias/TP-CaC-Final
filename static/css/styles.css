@@ -5,6 +5,8 @@
 @import './cartelera/cartelera.css';
 @import './faq/faq.css';
 @import './contacto/formulario.css';
+@import './app/tabla.css';
+@import './app/detalles.css';
 
 /* saco configuraciones por defecto de CSS */
 
@@ -39,6 +41,9 @@ html {
 
 body {
 	background-image: linear-gradient(to bottom right, #6b2f58, #372566);
+}
+
+#vue-app {
 	display: flex;
 	min-height: 100svh;
 	flex-direction: column;

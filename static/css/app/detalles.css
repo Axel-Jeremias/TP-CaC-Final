@@ -1,0 +1,136 @@
+/* El section en si, que contiene los botones y detalles */
+
+#seccion-detalles {
+    color: white;
+
+    /* Clase en común de los botones de volver, editar, y borrar */
+    & .btn {
+        font-size: 2.1rem;
+        font-family: var(--poppins);
+        padding-left: 15px;
+        padding-right: 15px;
+
+        /* Iconos de los botones */
+        & .fa-solid {
+            padding-right: 8px;
+        }
+    }
+
+    & h2 {
+        font-size: 6rem;
+        font-weight: bolder;
+        text-align: left;
+        max-width: 75%;
+    }
+
+    & h6 {
+        font-size: 2.7rem;
+        padding-top: 5px;
+        color: var(--grisclaro);
+    }
+}
+
+#boton-volver {
+    margin-bottom: 15px;
+}
+
+/* Los detalles de la pelicula */
+
+#detalles-pelicula {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    position: relative;
+    border-radius: 2rem;
+    padding: 4rem;
+}
+
+#botones-editar-borrar {
+    position: absolute;
+    right: 0;
+    padding-right: inherit;
+
+    /* Solo agregamos margin al segundo boton */
+    & a:not(:first-child) {
+        margin-left: 8px;
+    }
+}
+
+/* Div que contiene la portada y toda la información */
+
+#portada-informacion {
+    display: flex;
+    padding: 2rem 1rem 2rem 0;
+
+    & #portada {
+        flex: 0 0 350px;
+        height: 525px;
+    
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            overflow: hidden;
+        }
+    }
+
+    & #informacion {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding-left: 2.5rem;
+
+        & > p {
+            font-size: 3.2rem;
+            line-height: 4.3rem;
+            color: #dddddd;
+        }
+    }
+}
+
+/* Contenedor de los divs con el director, pais, lenguaje, etc. */
+#otra-info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 15px;
+
+    /* Los divs en si */
+    & div {
+        /* Todos los div excepto el primero */
+        &:not(:first-child) {
+            padding-left: 25px;
+        }
+
+        & h4 {
+            text-align: center;
+            font-size: 3.5rem;
+        }
+
+        & p {
+            font-size: 3rem;
+            font-style: italic;
+            color: #dddddd;
+        }
+    }
+}
+
+#trailer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & h4 {
+        font-size: 5.4rem;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    /* iframe de Youtube */
+    & iframe {
+        aspect-ratio: 16/9;
+        width: 75%;
+    }
+}
