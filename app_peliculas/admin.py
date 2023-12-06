@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Peliculas
+from .models import Pelicula
 
-@admin.register(Peliculas)
+@admin.register(Pelicula)
 class PeliculasAdmin(admin.ModelAdmin):
     ...
