@@ -24,7 +24,7 @@ class Pelicula(models.Model):
 
 	OPCIONES_AÑOS = [(a, a) for a in range(1888, 2024)]
 
-	nombre = models.CharField(max_length=100)
+	titulo = models.CharField(max_length=100)
 	año = models.IntegerField(choices=OPCIONES_AÑOS)
 	genero = models.CharField(max_length=10, choices=OPCIONES_GENERO)
 	lenguaje = models.CharField(max_length=30)
@@ -36,7 +36,7 @@ class Pelicula(models.Model):
 	director = models.CharField(max_length=50)
 
 	def __str__(self):
-		return f"{self.nombre}, una pelicula de {self.get_genero_display()} lanzada en {self.año}"
+		return f"{self.titulo} ({self.año})"
 	
 	def get_fields(self):
 		return [
