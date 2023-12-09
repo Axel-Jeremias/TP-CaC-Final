@@ -33,6 +33,9 @@ ALLOWED_HOSTS = []
 APPS = [
     "app_peliculas"
 ]
+EXTERNALS = [
+    "rest_framework"
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -44,6 +47,7 @@ INSTALLED_APPS = [
 ]
 
 INSTALLED_APPS += APPS
+INSTALLED_APPS += EXTERNALS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
