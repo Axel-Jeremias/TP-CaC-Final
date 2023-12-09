@@ -1,8 +1,87 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra-head %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block titulo %}
+    {{ tipo }} película
+{% endblock %}
+
 {% block content %}
     <section>
-            {{ form.as_p }}
+        <div id="boton-volver">
+            <a class="btn btn-secondary btn-lg" href={% url 'peliculas:all' %} role="button">
+                <i class="fa-solid fa-angle-left"></i>
+                Volver
+            </a>
+        </div>
+
+        <form id="formulario-creacion" method="post">
+            {% csrf_token %}
+            <div id="form-container">
+                <fieldset>
+                    <legend>Detalles</legend>
+
+                    <div class="form-group items-1">
+                        <div class="item">
+                            <label for="{{ form.titulo.id_for_label }}" class="titulo-campo">{{ form.titulo.label }}</label>
+                            {{ form.titulo }}
+                        </div>
+                    </div>
+
+                    <div class="form-group items-3">
+                        <div class="item">
+                            <label for="{{ form.director.id_for_label }}" class="titulo-campo">{{ form.director.label }}</label>
+                            {{ form.director }}
+                        </div>
+                        <div class="item">
+                            <label for="{{ form.genero.id_for_label }}" class="titulo-campo">Género</label>
+                            {{ form.genero }}
+                        </div>
+                        <div class="item">
+                            <label for="{{ form.año.id_for_label }}" class="titulo-campo">{{ form.año.label }}</label>
+                            {{ form.año }}
+                        </div>
+                    </div>
+
+                    <div class="form-group items-3">
+                        <div class="item">
+                            <label for="{{ form.duracion.id_for_label }}" class="titulo-campo">Duración (minutos)</label>
+                            {{ form.duracion }}
+                        </div>
+                        <div class="item">
+                            <label for="{{ form.lenguaje.id_for_label }}" class="titulo-campo">{{ form.lenguaje.label }}</label>
+                            {{ form.lenguaje }}
+                        </div>
+                        <div class="item">
+                            <label for="{{ form.pais.id_for_label }}" class="titulo-campo">País</label>
+                            {{ form.pais }}
+                        </div>
+                    </div>
+
+                    <div class="form-group items-1">
+                        <div class="item">
+                            <label for="{{ form.sinopsis.id_for_label }}" class="titulo-campo">{{ form.sinopsis.label }}</label>
+                            {{ form.sinopsis }}
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div id="boton-guardar">
+                <button type="submit" class="btn btn-success">
+                    {% if tipo == 'Crear' %}
+                        <i class="fa-solid fa-plus"></i>
+                        Agregar
+                    {% else %}
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Guardar
+                    {% endif %}
+                </button>
+            </div>
+        </form>
     </section>
 {% endblock %}

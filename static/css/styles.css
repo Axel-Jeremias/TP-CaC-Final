@@ -7,6 +7,8 @@
 @import './contacto/formulario.css';
 @import './app/tabla.css';
 @import './app/detalles.css';
+@import './app/creacion.css';
+@import './app/eliminar.css';
 
 /* saco configuraciones por defecto de CSS */
 

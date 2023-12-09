@@ -1,0 +1,52 @@
+#formulario-creacion {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 2rem;
+    padding: 2rem 6rem 4rem;
+}
+
+#form-container label {
+    display: block;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-bottom: 3px;
+}
+
+#form-container input, #form-container textarea, #form-container select {
+    font-size: 1.8rem;
+}
+
+#form-container textarea {
+    overflow: hidden;
+    height: 150px;
+}
+
+#boton-guardar {
+    display: flex;
+    justify-content: right;
+    margin-top: 25px;
+
+    &:not(:first-child) {
+        margin-left: 15px;
+    }
+}
+
+#form-container fieldset {
+    border: 2px solid white;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 25px 0;
+}
+
+
+#form-container legend {
+    /* Propiedas que hay que sobreescribir debido a Bootstrap */
+    float: none;
+    width: auto;
+    font-size: 2.8rem;
+    padding: 7px 15px;
+    background-color: #6c757d;
+    font-family: var(--open-sans);
+}
