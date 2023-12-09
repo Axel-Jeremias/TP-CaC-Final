@@ -9,6 +9,7 @@
 @import './app/detalles.css';
 @import './app/creacion.css';
 @import './app/eliminar.css';
+@import './error/404.css';
 
 /* saco configuraciones por defecto de CSS */
 

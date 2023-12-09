@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}Página no encontrada{% endblock %}
+
+{% block content %}
+    <section id="error-container">
+        <div>
+            <h1 id="titulo-pagina"><i class="fa-solid fa-xmark" style="color: #ffffff;"></i> Página no encontrada</h1>
+            <p id="error-texto">Lo sentimos, la página que ha solicitado no existe</p>
+        </div>
+    </section>
+{% endblock %}

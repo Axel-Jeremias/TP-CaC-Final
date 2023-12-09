@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from .views import IndexPage, FAQPage, CarteleraPage, ContactoPage
+from .views import IndexPage, FAQPage, CarteleraPage, ContactoPage, NotFoundView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,3 +27,5 @@ urlpatterns = [
     path("cartelera", CarteleraPage.as_view(), name="cartelera"),
     path("peliculas/", include("app_peliculas.urls"))
 ]
+
+handler404 = NotFoundView.as_view()
