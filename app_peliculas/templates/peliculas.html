@@ -23,7 +23,8 @@
 				<th>#</th>
 				<th>Título</th>
 				<th>Año</th>
-				<th>Genero</th>
+				<th>Género</th>
+				<th>Lenguaje</th>
 				<th>Duración</th>
 				<th></th>
 			</tr>
@@ -68,7 +69,7 @@
 				{% endif %}
 
 				<span>
-					Pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+					Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
 				</span>
 
 				{% if page_obj.has_next %}
