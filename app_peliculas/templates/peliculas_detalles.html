@@ -14,17 +14,22 @@
 
 {% block content %}
     <section id="seccion-detalles">
-        <a id="boton-volver" class="btn btn-secondary btn-lg" href={% url 'peliculas:all' %} role="button">
-            <i class="fa-solid fa-angle-left"></i>Volver
-        </a>
+        <div id="boton-volver">
+            <a class="btn btn-secondary btn-lg" href={% url 'peliculas:all' %} role="button">
+                <i class="fa-solid fa-angle-left"></i>
+                Volver
+            </a>
+        </div>
 
         <div id="detalles-pelicula">
             <div id="botones-editar-borrar">
                 <a class="btn btn-secondary btn-lg" href={% url 'peliculas:editar' pk=pelicula.pk %} role="button">
-                    <i class="fa-solid fa-pen-to-square"></i>Editar
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    Editar
                 </a>
                 <a class="btn btn-danger btn-lg" href={% url 'peliculas:eliminar' pk=pelicula.pk %} role="button">
-                    <i class="fa-solid fa-trash" style="color: #ffffff;"></i>Eliminar
+                    <i class="fa-solid fa-trash" style="color: #ffffff;"></i>
+                    Eliminar
                 </a>
             </div>
 
@@ -42,31 +47,15 @@
                 <div id="informacion">
                     <p><i>{{ pelicula.sinopsis }}</i></p>
 
-                    <div id="otra-info">
-                        <div>
-                            <h4>Director</h4>
-                            <p>{{ pelicula.director }}</p>
+                    {% if pelicula.trailer and pelicula.trailer|es_video_youtube %}
+                        <hr>
+                        <div id="trailer">
+                            <h4>Tráiler</h4>
+                            <iframe src={{ pelicula.trailer|youtube_embed }} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
                         </div>
-                        <div>
-                            <h4>País</h4>
-                            <p>{{ pelicula.pais }}</p>
-                        </div>
-                        <div>
-                            <h4>Lenguaje</h4>
-                            <p>{{ pelicula.lenguaje }}</p>
-                        </div>
-                    </div>
+                    {% endif %}
                 </div>
             </div>
-
-            {% if pelicula.trailer and pelicula.trailer|es_video_youtube %}
-                <hr>
-
-                <div id="trailer">
-                    <h4>Trailer</h4>
-                    <iframe src={{ pelicula.trailer|youtube_embed }} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
-                </div>
-            {% endif %}
         </div>
     </section>
 {% endblock %}
