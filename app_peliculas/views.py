@@ -29,19 +29,16 @@ class PeliculasDetailView(PeliculasBaseView, DetailView):
 class PeliculasCreateView(PeliculasBaseView, CreateView):
     template_name = "peliculas_creacion.html"
     extra_context = {
-        "tipo": "Crear pelicula"
+        "tipo": "Crear"
     }
 
 
 class PeliculasUpdateView(PeliculasBaseView, UpdateView):
     template_name = "peliculas_creacion.html"
     extra_context = {
-        "tipo": "Actualizar pelicula"
+        "tipo": "Actualizar"
     }
 
 
 class PeliculasDeleteView(PeliculasBaseView, DeleteView):
     template_name = "peliculas_eliminar.html"
-    extra_context = {
-        "tipo": "Borrar pelicula"
-    }
