@@ -68,22 +68,30 @@
 								<a class="dropdown-item" href={% url 'peliculas:editar' pk=pelicula.pk %}>
 									<i class="fa-solid fa-pen-to-square"></i>Editar
 								</a>
-							  	<a class="dropdown-item" href={% url 'peliculas:eliminar' pk=pelicula.pk %}>
+									<a class="dropdown-item" href={% url 'peliculas:eliminar' pk=pelicula.pk %}>
 									<i class="fa-solid fa-trash" style="color: #eb0505;"></i>Eliminar
 								</a>
 							</div>
-						  </div>
+							</div>
 					</td>
 				</tr>
 			{% empty %}
-				<td colspan="6">No hay peliculas en la base de datos</td>
+				<tr>
+					<td colspan="7">
+						{% if parametros %}
+							No se encontraron películas para los filtros especificados.
+						{% else %}
+							No hay películas disponibles en este momento.
+						{% endif %}
+					</td>
+				</tr>
 			{% endfor %}
 		</table>
 
 		{% if page_obj.paginator.num_pages > 1 %}
 			<div id="paginas">
 				{% if page_obj.has_previous %}
-					<a href="?page={{ page_obj.previous_page_number }}">
+					<a href="?{{ parametros }}&page={{ page_obj.previous_page_number }}">
 						<i class="fa-solid fa-angle-left"></i>
 					</a>
 				{% endif %}
@@ -93,7 +101,7 @@
 				</span>
 
 				{% if page_obj.has_next %}
-					<a href="?page={{ page_obj.next_page_number }}">
+					<a href="?{{ parametros }}&page={{ page_obj.next_page_number }}">
 						<i class="fa-solid fa-angle-right"></i>
 					</a>
 				{% endif %}
