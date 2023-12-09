@@ -1,0 +1,44 @@
+#eliminar-pelicula {
+    color: white;
+
+    & h3 {
+        font-size: 4rem;
+        font-family: var(--poppins);
+        padding-top: 15px;
+    }
+
+    & summary {
+        font-size: 3rem;
+    }
+
+    & details {
+        padding: 15px;
+
+        & ul {
+            padding: 15px;
+            list-style-position: inside;
+
+            & li {
+                font-size: 2.2rem;
+                font-family: var(--poppins);
+
+                & a {
+                    color: white;
+
+                    &:hover {
+                        color: #ff75fb;
+                    }
+                }
+            }
+        }
+    }
+
+    & #boton-eliminar-cancelar {
+        display: flex;
+        justify-content: right;
+
+        & *:not(:first-child) {
+            margin-left: 15px;
+        }
+    }
+}
