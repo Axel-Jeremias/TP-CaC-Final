@@ -2,7 +2,7 @@
 
 /* El formulario en si */
 
-form {
+#contactoForm {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
@@ -16,7 +16,7 @@ form {
 
 /* Secciones del formulario */
 
-fieldset {
+#contactoForm fieldset {
 	width: 90%;
 	border-radius: 15px;
 	margin: auto;
@@ -47,28 +47,43 @@ legend {
 
 /* Los divs para separar cada campo del formulario */
 
-.item {
+.items-1 > .item {
+	flex: 0 0 100%;
+}
+
+.items-2 > .item {
 	flex: 0 0 45%;
+}
+
+.items-3 > .item {
+	flex: 0 0 30%;
+}
+
+.items-4 > .item {
+	flex: 0 0 20%;
+}
+
+.item {
 	display: flex;
 	flex-direction: column;
 }
 
 /* Los campos donde insertar el texto */
 
-input, textarea {
+input, textarea, select {
 	padding: 8px 15px;
 	border: 1px solid grey;
 	border-radius: 20px;
 	background-color: #ebebeb;
 }
 
-input:not([type="radio"]):hover {
+#contactoForm input:not([type="radio"]):hover {
 	border: 1px solid rgb(0, 0, 0);
 }
 
 /* El nombre del campo */
 
-label {
+#contactoForm label {
 	font-family: var(--poppins);
 	display: block;
 	padding-bottom: 10px;
@@ -94,7 +109,7 @@ textarea {
 
 /* Botones de borrar y enviar */
 
-form > button {
+#contactoForm > button {
 	border-radius: 25px;
 	border: none;
 	color: white;
@@ -104,19 +119,19 @@ form > button {
 	font-family: var(--open-sans);
 }
 
-button[type="submit"] {
+#contactoForm button[type="submit"] {
 	background-color: #5fcc63;
 }
 
-button[type="submit"]:hover {
+#contactoForm button[type="submit"]:hover {
 	background-color: #5dec62;
 }
 
-button[type="reset"] {
+#contactoForm button[type="reset"] {
 	background-color: #cf2f2f;
 }
 
-button[type="reset"]:hover {
+#contactoForm button[type="reset"]:hover {
 	background-color: #f73838;
 }
 
@@ -124,7 +139,7 @@ button[type="reset"]:hover {
 
 /* Laptops y PCs chicas */
 @media screen and (max-width: 1024px) {
-	form {
+	#contactoForm {
 		width: 100%;
 	}
 }
@@ -136,7 +151,7 @@ button[type="reset"]:hover {
 		padding: 0 15px;
     }
 
-	form label {
+	#contactoForm label {
 		padding-top: 10px;
 	}
 }

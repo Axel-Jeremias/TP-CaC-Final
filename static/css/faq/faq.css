@@ -2,13 +2,13 @@
 
 /* Cada elemento que contiene cada pregunta y respuesta */
 
-details {
+#faq details {
     margin-bottom: 16px;
 }
 
 /* Cada pregunta. Eliminamos el estilo original de lista y usamos flex para alinear verticalmente */
 
-summary {
+#faq summary {
     font-size: 4rem;
     font-weight: 400;
     font-family: var(--open-sans);
@@ -23,19 +23,19 @@ summary {
     text-align: left;
 }
 
-summary:hover {
+#faq summary:hover {
     background-image: linear-gradient(to right, rgb(73, 138, 115), rgb(61, 71, 221));
 }
 
 /* Aseguramos que eliminamos el icono original del summary */
 
-details > summary::marker {
+#faq details > summary::marker {
     content: "";
 }
 
 /* Cuando details está cerrado, mostramos un "+" a la derecha como es comun en un FAQ */
 
-details > summary::after {
+#faq details > summary::after {
     position: absolute;
     content: "+";
     right: 20px;
@@ -43,7 +43,7 @@ details > summary::after {
 
 /* Cuando está abierto, lo reemplazamos con un "-" para indicar que puede ser cerrado */
 
-details[open] > summary::after {
+#faq details[open] > summary::after {
     content: "-";
 }
 
