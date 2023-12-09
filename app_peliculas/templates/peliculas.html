@@ -14,9 +14,22 @@
 	<h1 id="titulo-pagina">Peliculas</h1>
 
 	<section id="peliculas">
-		{% if pelicula_list.count %}
-			<span id="counter-peliculas">Mostrando {{ page_obj.start_index }} a {{ page_obj.end_index }} de {{ page_obj.paginator.count }} peliculas</span>
-		{% endif %}
+		<div id="top-tabla">
+			{% if pelicula_list.count %}
+				<span id="counter-peliculas">Mostrando {{ page_obj.start_index }} a {{ page_obj.end_index }} de {{ page_obj.paginator.count }} películas</span>
+			{% endif %}
+			<div id="botones-agregar-borrar">
+				<a class="btn btn-success" href={% url 'peliculas:crear' %} role="button">
+					<i class="fa-solid fa-plus"></i>
+					Agregar
+				</a>
+				{% if parametros %}
+					<a class="btn btn-secondary" href={% url 'peliculas:all' %} role="button">
+						Borrar filtros
+					</a>
+				{% endif %}
+			</div>
+		</div>
 
 		<table>
 			<tr>
@@ -32,9 +45,16 @@
 			{% for pelicula in pelicula_list %}
 				<tr>
 					<td> {{ page_obj.start_index|add:forloop.counter0 }} </td>
-					<td> {{ pelicula.nombre }} </td>
-					<td> {{ pelicula.año }} </td>
-					<td> {{ pelicula.genero }} </td>
+					<td> {{ pelicula.titulo }} </td>
+					<td>
+						<a href="{% url "peliculas:all" %}?año={{ pelicula.año }}">{{ pelicula.año }}</a>
+					</td>
+					<td>
+						<a href="{% url "peliculas:all" %}?genero={{ pelicula.genero }}">{{ pelicula.genero }}</a>
+					</td>
+					<td>
+						<a href="{% url "peliculas:all" %}?lenguaje={{ pelicula.lenguaje }}">{{ pelicula.lenguaje }}</a>
+					</td>
 					<td> {{ pelicula.duracion }} minutos</td>
 					<td> 
 						<div class="btn-group">

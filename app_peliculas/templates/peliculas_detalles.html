@@ -33,8 +33,12 @@
                 </a>
             </div>
 
-            <h2>{{ pelicula.nombre }}</h2>
-            <h6>{{pelicula.año}} | {{ pelicula.duracion }} minutos | {{pelicula.genero}}</h4>
+            <h2>{{ pelicula.titulo }}</h2>
+            <h6>
+                <a class="query-link" href="{% url "peliculas:all" %}?año={{ pelicula.año }}">{{ pelicula.año }}</a> | 
+                {{ pelicula.duracion }} minutos | 
+                <a class="query-link" href="{% url "peliculas:all" %}?genero={{ pelicula.genero }}">{{ pelicula.genero }}</a>
+            </h4>
             
             <div id="portada-informacion">
                 <div id="portada">
@@ -43,6 +47,12 @@
                     {% else %}
                         <img src={% static "./img/app/no-cover.png" %}></img>
                     {% endif %}
+
+                    <div id="otra-info">
+                        <p>Director: <a class="query-link" href="{% url "peliculas:all" %}?director={{ pelicula.director }}">{{ pelicula.director }}</a></p>
+                        <p>País: <a class="query-link" href="{% url "peliculas:all" %}?pais={{ pelicula.pais }}">{{ pelicula.pais }}</a></p>
+                        <p>Lenguaje: <a class="query-link" href="{% url "peliculas:all" %}?lenguaje={{ pelicula.lenguaje }}">{{ pelicula.lenguaje }}</a></p>
+                    </div>
                 </div>
                 <div id="informacion">
                     <p><i>{{ pelicula.sinopsis }}</i></p>
