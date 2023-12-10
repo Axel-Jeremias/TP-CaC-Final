@@ -1,5 +1,4 @@
 import re
-import requests
 
 from django import template
 from django.template.defaultfilters import stringfilter
@@ -79,21 +78,19 @@ def duracion_string(minutos: int) -> str:
 
 @register.filter
 @stringfilter
-def es_imagen_y_disponible(url: str) -> bool:
+def es_imagen(url: str) -> bool:
 	"""
-	Verifica que el link lleve a una imagen y esté disponible
+	Verifica que el link lleve a una imagen
 
-	>>> es_imagen_y_disponible(https://www.example.com/portada.jpg)
+	>>> es_imagen(https://www.example.com/portada.jpg)
 	True
-	>>> es_imagen_y_disponible(https://www.example.com/video.mp4)
+	>>> es_imagen(https://www.example.com/video.mp4)
 	False
 	"""
 
-	formatos_imagenes = ("image/png", "image/jpeg", "image/jpg")
+	formatos_imagenes = (".png", ".jpeg", ".jpg")
 
-	r = requests.head(url)
-
-	if r.headers["content-type"] in formatos_imagenes:
+	if url.endswith(formatos_imagenes):
 		return True
 
 	return False

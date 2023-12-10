@@ -42,7 +42,7 @@
             
             <div id="portada-informacion">
                 <div id="portada">
-                    {% if pelicula.cover and pelicula.cover|es_imagen_y_disponible %}
+                    {% if pelicula.cover and pelicula.cover|es_imagen %}
                         <img src={{ pelicula.cover }}></img>
                     {% else %}
                         <img src={% static "./img/app/no-cover.png" %}></img>
