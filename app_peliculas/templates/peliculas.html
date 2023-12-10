@@ -44,8 +44,10 @@
 
 			{% for pelicula in pelicula_list %}
 				<tr>
-					<td> {{ page_obj.start_index|add:forloop.counter0 }} </td>
-					<td> {{ pelicula.titulo }} </td>
+					<td>{{ page_obj.start_index|add:forloop.counter0 }}</td>
+					<td>
+						<a href={% url 'peliculas:detalles' pk=pelicula.pk %}>{{ pelicula.titulo }}</a>
+					</td>
 					<td>
 						<a href="{% url "peliculas:all" %}?año={{ pelicula.año }}">{{ pelicula.año }}</a>
 					</td>
@@ -55,7 +57,7 @@
 					<td>
 						<a href="{% url "peliculas:all" %}?lenguaje={{ pelicula.lenguaje }}">{{ pelicula.lenguaje }}</a>
 					</td>
-					<td> {{ pelicula.duracion }} minutos</td>
+					<td>{{ pelicula.duracion }} minutos</td>
 					<td> 
 						<div class="btn-group">
 							<button id="dropdown-button" type="button" class="btn btn-lg" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -90,7 +90,7 @@ def es_imagen(url: str) -> bool:
 
 	formatos_imagenes = (".png", ".jpeg", ".jpg")
 
-	if url.endswith(formatos_imagenes):
+	if any(formato in url for formato in formatos_imagenes):
 		return True
 
 	return False
