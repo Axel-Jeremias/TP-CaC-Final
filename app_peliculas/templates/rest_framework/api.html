@@ -1,0 +1,31 @@
+{% extends "rest_framework/base.html" %}
+
+{% block script %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    {{ block.super }}
+{% endblock %}
+
+{% block body %}
+    <a class="btn btn-secondary" id="boton-inicio" href="{% url 'inicio' %}"><i class="fa-solid fa-angle-left"></i>Volver</a>
+    {{ block.super }}
+{% endblock %}
+
+{% block style %}
+    <style>
+        #boton-inicio {
+            position: fixed; 
+            bottom: 20px; 
+            left: 20px;
+            background-color: #5c636a;
+            color: white;
+            font-size: 22px;
+            z-index: 1;
+            
+            & i {
+                margin-right: 7px;
+            }
+        }
+    </style>
+
+    {{ block.super }}
+{% endblock %}
