@@ -2,31 +2,47 @@ from django.db import models
 from django.core.validators import MinValueValidator
 
 class Pelicula(models.Model):
-	DRAMA = 'Drama'
-	COMEDIA = 'Comedia'
-	HORROR = 'Horror'
-	FANTASIA = 'Fantasia'
 	ACCION = 'Acción'
-	THRILLER = 'Thriller'
-	ROMANCE = 'Romance'
+	AVENTURA = 'Aventura'
+	COMEDIA = 'Comedia'
+	CRIMEN = 'Crimen'
+	DOCUMENTAL = "Documental"
+	DRAMA = 'Drama'
+	FANTASIA = 'Fantasía'
+	FICCION = 'Ciencia Ficción'
+	HISTORIA = 'Historia'
+	HORROR = 'Horror'
 	MISTERIO = 'Misterio'
+	MUSICAL = "Musical"
+	ROMANCE = 'Romance'
+	SUSPENSO = "Suspenso"
+	THRILLER = 'Thriller'
+	WESTERN = 'Western'
 
 	OPCIONES_GENERO = [
-		(DRAMA, 'Drama'),
-		(COMEDIA, 'Comedia'),
-		(HORROR, 'Horror'),
-		(FANTASIA, 'Fantasia'),
 		(ACCION, 'Acción'),
-		(THRILLER, 'Thriller'),
-		(ROMANCE, 'Romance'),
+		(AVENTURA, 'Aventura'),
+		(COMEDIA, 'Comedia'),
+		(CRIMEN, 'Crimen'),
+		(DOCUMENTAL, "Documental"),
+		(DRAMA, 'Drama'),
+		(FANTASIA, 'Fantasía'),
+		(FICCION, 'Ciencia Ficción'),
+		(HISTORIA, 'Historia'),
+		(HORROR, 'Horror'),
 		(MISTERIO, 'Misterio'),
+		(MUSICAL, "Musical"),
+		(ROMANCE, 'Romance'),
+		(SUSPENSO, "Suspenso"),
+		(THRILLER, 'Thriller'),
+		(WESTERN, 'Western'),
 	]
 
 	OPCIONES_AÑOS = [(a, a) for a in range(1888, 2024)]
 
 	titulo = models.CharField(max_length=100)
 	año = models.IntegerField(choices=OPCIONES_AÑOS)
-	genero = models.CharField(max_length=10, choices=OPCIONES_GENERO)
+	genero = models.CharField(max_length=30, choices=OPCIONES_GENERO)
 	lenguaje = models.CharField(max_length=30)
 	pais = models.CharField(max_length=30)
 	trailer = models.URLField(help_text="URL del trailer de la pelicula", blank=True)
