@@ -50,3 +50,17 @@
     background-color: #6c757d;
     font-family: var(--open-sans);
 }
+
+/* Media queries */
+
+/* Celulares */
+@media screen and (max-width: 576px) {
+    #formulario-creacion {
+        padding: 1rem 3rem 2rem;
+    }
+
+    a.btn, button.btn {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+}
