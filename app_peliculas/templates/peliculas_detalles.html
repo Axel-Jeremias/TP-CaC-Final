@@ -35,9 +35,9 @@
 
             <h2>{{ pelicula.titulo }}</h2>
             <h6>
-                <a class="query-link" href="{% url "peliculas:all" %}?año={{ pelicula.año }}">{{ pelicula.año }}</a> | 
+                <a href="{% url "peliculas:all" %}?año={{ pelicula.año }}">{{ pelicula.año }}</a> | 
                 {{ pelicula.duracion }} minutos | 
-                <a class="query-link" href="{% url "peliculas:all" %}?genero={{ pelicula.genero }}">{{ pelicula.genero }}</a>
+                <a href="{% url "peliculas:all" %}?genero={{ pelicula.genero }}">{{ pelicula.genero }}</a>
             </h4>
             
             <div id="portada-informacion">
@@ -49,9 +49,9 @@
                     {% endif %}
 
                     <div id="otra-info">
-                        <p>Director: <a class="query-link" href="{% url "peliculas:all" %}?director={{ pelicula.director }}">{{ pelicula.director }}</a></p>
-                        <p>País: <a class="query-link" href="{% url "peliculas:all" %}?pais={{ pelicula.pais }}">{{ pelicula.pais }}</a></p>
-                        <p>Lenguaje: <a class="query-link" href="{% url "peliculas:all" %}?lenguaje={{ pelicula.lenguaje }}">{{ pelicula.lenguaje }}</a></p>
+                        <p>Director: <a href="{% url "peliculas:all" %}?director={{ pelicula.director }}">{{ pelicula.director }}</a></p>
+                        <p>País: <a href="{% url "peliculas:all" %}?pais={{ pelicula.pais }}">{{ pelicula.pais }}</a></p>
+                        <p>Lenguaje: <a href="{% url "peliculas:all" %}?lenguaje={{ pelicula.lenguaje }}">{{ pelicula.lenguaje }}</a></p>
                     </div>
                 </div>
                 <div id="informacion">
