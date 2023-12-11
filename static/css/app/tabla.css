@@ -132,6 +132,26 @@
             & th:first-child, th:last-child {
                 width: 7%;
             }
+
+            & .dropdown-item {
+                font-size: 2rem;
+            }
+        }
+
+        & #top-tabla {
+            #botones-agregar-borrar {
+                display: flex;
+                flex-direction: column;
+            }
+
+            & > a {
+                width: 130px;
+            }
+
+            & #botones-agregar-borrar > a:not(:first-child) {
+                margin-left: 0;
+                margin-top: 10px;
+            }
         }
     }
 }
