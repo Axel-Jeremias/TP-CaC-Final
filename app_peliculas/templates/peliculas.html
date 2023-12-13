@@ -93,6 +93,9 @@
 		{% if page_obj.paginator.num_pages > 1 %}
 			<div id="paginas">
 				{% if page_obj.has_previous %}
+					<a href="?{{ parametros }}&page=1">
+						<i class="fa-solid fa-angles-left"></i>
+					</a>
 					<a href="?{{ parametros }}&page={{ page_obj.previous_page_number }}">
 						<i class="fa-solid fa-angle-left"></i>
 					</a>
@@ -105,6 +108,9 @@
 				{% if page_obj.has_next %}
 					<a href="?{{ parametros }}&page={{ page_obj.next_page_number }}">
 						<i class="fa-solid fa-angle-right"></i>
+					</a>
+					<a href="?{{ parametros }}&page={{ page_obj.paginator.num_pages }}">
+						<i class="fa-solid fa-angles-right"></i>
 					</a>
 				{% endif %}
 			</div>

@@ -19,7 +19,7 @@ class PeliculasBaseView(View):
 
 
 class PeliculasListView(PeliculasBaseView, ListView):
-    paginate_by = 20
+    paginate_by = 15
 
     def get_queryset(self):
         queryset = super().get_queryset()

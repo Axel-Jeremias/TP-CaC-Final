@@ -119,6 +119,10 @@
             align-items: center;
             text-decoration: none;
             color: grey;
+
+            & i[class*="fa-angles"] {
+                margin: 5px;
+            }
         }
     }
 }
